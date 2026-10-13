@@ -1,0 +1,164 @@
+==================================================================================================================================
+V148 REPORTE COMPLETO: FORMULA + VALOR + UNIDAD + HERRAMIENTA + REF
+==================================================================================================================================
+P001 [CONSTANTES   ] k_B Boltzmann                        | k_B                                              = 1.380649e-23 J/K       | numpy scalar             | CODATA
+P002 [CONSTANTES   ] hbar Planck reducido                 | hbar                                             = 1.0545718e-34 J*s       | numpy scalar             | CODATA
+P003 [CONSTANTES   ] c velocidad luz                      | c                                                = 2.9979246e+08 m/s       | numpy scalar             | CODATA
+P004 [CONSTANTES   ] N_A Avogadro                         | N_A                                              = 6.0221408e+23 1/mol     | numpy scalar             | CODATA
+P005 [CONSTANTES   ] e carga electron                     | e                                                = 1.6021766e-19 C         | numpy scalar             | CODATA
+P006 [CONSTANTES   ] T corporal                           | T                                                = 310.15 K         | numpy scalar             | V142 P01
+P007 [CONSTANTES   ] energia termica                      | kBT = k_B*T                                      = 4.2820829e-21 J         | numpy scalar             | V142 P02
+P008 [CONSTANTES   ] limite Landauer                      | L = kBT*ln(2)                                    = 2.9681137e-21 J/bit     | numpy scalar             | V121
+P009 [METABOLISMO  ] CMRO2 reposo                         | CMRO2                                            = 3.5 ml/100g/min | numpy scalar             | V142 P03
+P010 [METABOLISMO  ] masa cerebral                        | M                                                = 1400 g         | numpy scalar             | estandar
+P011 [METABOLISMO  ] mol O2 por s y g                     | (CMRO2/1000)/22.4/60/100                         = 2.6041667e-08 mol/s/g   | numpy scalar             | V142 P04
+P012 [METABOLISMO  ] P acoplada ATP                       | molO2*M*6ATP*50kJ                                = 10.9375 W         | numpy scalar             | V142 P05
+P013 [METABOLISMO  ] entalpia O2                          | J_ml                                             = 21.1 J/ml      | numpy scalar             | V125 metodoA
+P014 [METABOLISMO  ] P oxicalorica                        | CMRO2*M/100/60*J_ml                              = 17.231667 W         | numpy scalar             | V125
+P015 [METABOLISMO  ] CMR glucosa                          | CMRglc                                           = 5.8333333e-09 mol/g/s   | numpy scalar             | literatura
+P016 [METABOLISMO  ] P glucosa ATP                        | CMRglc*M*31ATP*50kJ                              = 12.658333 W         | numpy scalar             | V145
+P017 [METABOLISMO  ] P_met adoptada                       | P_OX (V125)                                      = 17.231667 W         | numpy scalar             | V125 17.23W
+P018 [BIOFOTON     ] lambda UPE dominante                 | lambda                                           = 5e-07 m         | numpy scalar             | V125
+P019 [BIOFOTON     ] energia biofoton                     | E = h*c/lambda                                   = 3.9728917e-19 J         | numpy scalar             | V121
+P020 [BIOFOTON     ] frecuencia optica                    | w = 2pi*c/lambda                                 = 3.7673031e+15 rad/s     | numpy scalar             | V144
+P021 [BIOFOTON     ] flujo UPE cerebral                   | Phi_UPE                                          = 250000 fot/s     | numpy scalar             | V142 P06
+P022 [BIOFOTON     ] potencia UPE                         | P_UPE = Phi*E                                    = 9.9322293e-14 W         | numpy scalar             | V142 P06
+P023 [BIOFOTON     ] fraccion UPE/met                     | xi = P_UPE/P_met                                 = 5.76394e-15 -         | numpy scalar             | V142 P07
+P024 [BIOFOTON     ] Landauer por foton                   | x = E_fot/L                                      = 133.85241 x         | numpy scalar             | V121 134x
+P025 [CAVIDAD      ] longitud internodo                   | L                                                = 0.0002 m         | numpy scalar             | V142 P08
+P026 [CAVIDAD      ] radio axon                           | a                                                = 5e-07 m         | numpy scalar             | V142 P09
+P027 [CAVIDAD      ] espesor capa mielina                 | d_cap                                            = 5e-09 m         | numpy scalar             | V142 P10
+P028 [CAVIDAD      ] separacion Casimir                   | d                                                = 1e-08 m         | numpy scalar             | V142 P11
+P029 [CAVIDAD      ] indice efectivo                      | n_eff                                            = 1.35 -         | numpy scalar             | V142 P12
+P030 [CAVIDAD      ] area lateral                         | A = 2*pi*a*L                                     = 6.2831853e-10 m^2       | numpy scalar             | V142 P13
+P031 [CAVIDAD      ] volumen cavidad                      | V = pi*a^2*L                                     = 1.5707963e-16 m^3       | numpy scalar             | V142 P14
+P032 [CAVIDAD      ] frecuencia cavidad n=1               | f = c/(2*n_eff*L)                                = 5.5517122e+11 Hz        | numpy scalar             | V142 P15
+P033 [CAVIDAD      ] energia Casimir                      | E_C = -pi^2*hbar*c*A/(720*d^4)                   = -2.7229771e-05 J         | numpy scalar             | V142 P19
+P034 [CAVIDAD      ] presion Casimir                      | P_C = -pi^2*hbar*c/(240*d^4)                     = -130012.58 Pa        | numpy scalar             | V142 P20
+P035 [CAVIDAD      ] densidad agua mielina                | rho                                              = 1000 kg/m^3    | numpy scalar             | V142 P21
+P036 [CAVIDAD      ] masa efectiva capa                   | m = rho*A*d_cap                                  = 3.1415927e-15 kg        | numpy scalar             | V142 P21
+P037 [CAVIDAD      ] potencial de membrana                | Vm = (kBT/e)*ln(K_out/K_in)                      = -0.089058694 V         | numpy scalar             | V142 P44
+P038 [CAVIDAD      ] campo en capa mielina                | E = Vm/d_cap                                     = 17811739 V/m       | numpy scalar             | V142 P45
+P039 [ARMONICOS    ] tan delta mielina THz                | tan_d                                            = 0.01 -         | numpy scalar             | V142 P31
+P040 [ARMONICOS    ] factor calidad                       | Q = 1/tan_d                                      = 100 -         | numpy scalar             | V142 P32
+P041 [ARMONICOS    ] w_n (n=1)                            | n*2pi*f_cav                                      = 3.4882436e+12 rad/s     | numpy scalar             | V142 P16
+P042 [ARMONICOS    ] x_zpf (n=1)                          | sqrt(hbar/(2*m*w))                               = 6.9365695e-17 m         | numpy scalar             | V142 P22
+P043 [ARMONICOS    ] eta (n=1)                            | x_zpf/L                                          = 3.4682847e-13 -         | numpy scalar             | V142 P25
+P044 [ARMONICOS    ] Gamma_DCE (n=1)                      | eta*w/4                                          = 0.30245555 1/s       | numpy scalar             | V142 P28
+P045 [ARMONICOS    ] n_termica (n=1)                      | 1/(exp(hbar*w/kBT)-1)                            = 11.14767 fonones   | numpy scalar             | V142 P36
+P046 [ARMONICOS    ] kappa_SI (n=1)                       | w_n/Q                                            = 3.4882436e+10 1/s       | numpy scalar             | V142 P33
+P047 [ARMONICOS    ] w_n (n=2)                            | n*2pi*f_cav                                      = 6.9764873e+12 rad/s     | numpy scalar             | V142 P17
+P048 [ARMONICOS    ] x_zpf (n=2)                          | sqrt(hbar/(2*m*w))                               = 4.9048953e-17 m         | numpy scalar             | V142 P23
+P049 [ARMONICOS    ] eta (n=2)                            | x_zpf/L                                          = 2.4524477e-13 -         | numpy scalar             | V142 P26
+P050 [ARMONICOS    ] Gamma_DCE (n=2)                      | eta*w/4                                          = 0.42773675 1/s       | numpy scalar             | V142 P29
+P051 [ARMONICOS    ] n_termica (n=2)                      | 1/(exp(hbar*w/kBT)-1)                            = 5.3345669 fonones   | numpy scalar             | V142 P37
+P052 [ARMONICOS    ] kappa_SI (n=2)                       | w_n/Q                                            = 6.9764873e+10 1/s       | numpy scalar             | V142 P34
+P053 [ARMONICOS    ] w_n (n=3)                            | n*2pi*f_cav                                      = 1.0464731e+13 rad/s     | numpy scalar             | V142 P18
+P054 [ARMONICOS    ] x_zpf (n=3)                          | sqrt(hbar/(2*m*w))                               = 4.0048303e-17 m         | numpy scalar             | V142 P24
+P055 [ARMONICOS    ] eta (n=3)                            | x_zpf/L                                          = 2.0024151e-13 -         | numpy scalar             | V142 P27
+P056 [ARMONICOS    ] Gamma_DCE (n=3)                      | eta*w/4                                          = 0.52386839 1/s       | numpy scalar             | V142 P30
+P057 [ARMONICOS    ] n_termica (n=3)                      | 1/(exp(hbar*w/kBT)-1)                            = 3.4016238 fonones   | numpy scalar             | V142 P38
+P058 [ARMONICOS    ] kappa_SI (n=3)                       | w_n/Q                                            = 1.0464731e+11 1/s       | numpy scalar             | V142 P35
+P059 [ARMONICOS    ] w_n (n=4)                            | n*2pi*f_cav                                      = 1.3952975e+13 rad/s     | numpy scalar             | V142 P19
+P060 [ARMONICOS    ] x_zpf (n=4)                          | sqrt(hbar/(2*m*w))                               = 3.4682847e-17 m         | numpy scalar             | V142 P25
+P061 [ARMONICOS    ] eta (n=4)                            | x_zpf/L                                          = 1.7341424e-13 -         | numpy scalar             | V142 P28
+P062 [ARMONICOS    ] Gamma_DCE (n=4)                      | eta*w/4                                          = 0.60491111 1/s       | numpy scalar             | V142 P31
+P063 [ARMONICOS    ] n_termica (n=4)                      | 1/(exp(hbar*w/kBT)-1)                            = 2.4387075 fonones   | numpy scalar             | V142 P39
+P064 [ARMONICOS    ] kappa_SI (n=4)                       | w_n/Q                                            = 1.3952975e+11 1/s       | numpy scalar             | V142 P36
+P065 [ARMONICOS    ] w_n (n=5)                            | n*2pi*f_cav                                      = 1.7441218e+13 rad/s     | numpy scalar             | V142 P20
+P066 [ARMONICOS    ] x_zpf (n=5)                          | sqrt(hbar/(2*m*w))                               = 3.1021282e-17 m         | numpy scalar             | V142 P26
+P067 [ARMONICOS    ] eta (n=5)                            | x_zpf/L                                          = 1.5510641e-13 -         | numpy scalar             | V142 P29
+P068 [ARMONICOS    ] Gamma_DCE (n=5)                      | eta*w/4                                          = 0.67631118 1/s       | numpy scalar             | V142 P32
+P069 [ARMONICOS    ] n_termica (n=5)                      | 1/(exp(hbar*w/kBT)-1)                            = 1.8637874 fonones   | numpy scalar             | V142 P40
+P070 [ARMONICOS    ] kappa_SI (n=5)                       | w_n/Q                                            = 1.7441218e+11 1/s       | numpy scalar             | V142 P37
+P071 [ARMONICOS    ] w_n (n=6)                            | n*2pi*f_cav                                      = 2.0929462e+13 rad/s     | numpy scalar             | V142 P21
+P072 [ARMONICOS    ] x_zpf (n=6)                          | sqrt(hbar/(2*m*w))                               = 2.8318426e-17 m         | numpy scalar             | V142 P27
+P073 [ARMONICOS    ] eta (n=6)                            | x_zpf/L                                          = 1.4159213e-13 -         | numpy scalar             | V142 P30
+P074 [ARMONICOS    ] Gamma_DCE (n=6)                      | eta*w/4                                          = 0.74086178 1/s       | numpy scalar             | V142 P33
+P075 [ARMONICOS    ] n_termica (n=6)                      | 1/(exp(hbar*w/kBT)-1)                            = 1.4828498 fonones   | numpy scalar             | V142 P41
+P076 [ARMONICOS    ] kappa_SI (n=6)                       | w_n/Q                                            = 2.0929462e+11 1/s       | numpy scalar             | V142 P38
+P077 [ARMONICOS    ] internodos-cavidad cerebro           | N_CAV                                            = 2e+12 -         | numpy scalar             | V142 P39
+P078 [ARMONICOS    ] P por cavidad                        | P_cav = xi*P_met/N_CAV                           = 4.9661146e-26 W         | numpy scalar             | V142 P40
+P079 [ARMONICOS    ] pump_SI (n=1)                        | P_cav/(hbar*w_n)                                 = 0.000135 1/s       | numpy scalar             | V142 P41
+P080 [ARMONICOS    ] pump_SI (n=2)                        | P_cav/(hbar*w_n)                                 = 6.75e-05 1/s       | numpy scalar             | V142 P42
+P081 [ARMONICOS    ] pump_SI (n=5)                        | P_cav/(hbar*w_n)                                 = 2.7e-05 1/s       | numpy scalar             | V142 P45
+P082 [FASE_FOT_FON ] acople optomecanico                  | g_ff                                             = 0.02 -         | numpy scalar             | V144
+P083 [FASE_FOT_FON ] perdida fotónica sim                 | kappa_f                                          = 0.01 1/ns      | anclaje sim              | V146
+P084 [FASE_FOT_FON ] perdida fonónica sim                 | kappa_p                                          = 0.005 1/ns      | anclaje sim              | V144
+P085 [FASE_FOT_FON ] fonones estacionarios                | n_ph anclaje                                     = 300 fonones   | anclaje V144             | V144 P26
+P086 [FASE_FOT_FON ] fotones cavidad                      | n_f anclaje UPE                                  = 3460 fotones   | anclaje UPE              | V146
+P087 [FASE_FOT_FON ] cooperatividad fase                  | C = 4*g_ff^2/(kp*kf)                             = 32 -         | numpy scalar             | V146
+P088 [FASE_FOT_FON ] fidelidad fase fot-fon               | F = C/(1+C)                                      = 0.96969697 -         | forma cerrada            | V146
+P089 [FASE_FOT_FON ] autovalor superior H 2-modos         | eigh(H2)[1]                                      = 21.376457 -         | scipy.linalg.eigh        | V147.1
+P090 [FASE_FOT_FON ] splitting normal-modos               | 2*g_ff*sqrt(n_ph*n_f)                            = 40.752914 rad/ns    | numpy scalar             | V144 P48
+P091 [FASE_FOT_FON ] tasa conversion                      | g_ff^2*n_ph*n_f                                  = 415.2 1/s       | numpy scalar             | V144 P43
+P092 [FASE_FOT_FON ] tiempo conversion                    | tau = 1/R                                        = 0.0024084778 s         | numpy scalar             | V144 P49
+P093 [FONON_AGUA   ] acople fonon-agua                    | g_w                                              = 0.18 -         | numpy scalar             | V123 g_wp
+P094 [FONON_AGUA   ] perdida agua                         | mu_w                                             = 0.001 1/ns      | anclaje sim              | V123
+P095 [FONON_AGUA   ] orden agua coherente                 | S_w                                              = 0.99997 -         | V119 medido              | V119
+P096 [FONON_AGUA   ] dominios agua por segmento           | N_ag                                             = 6250 -         | numpy scalar             | V142 P49
+P097 [FONON_AGUA   ] dn indice por coherencia             | dn = eta*S_w                                     = 3.4681807e-13 -         | numpy scalar             | V147.1
+P098 [FONON_AGUA   ] tau coherencia agua                  | tau = 1/mu_w                                     = 1000 ns        | numpy scalar             | V147.1
+P099 [FONON_AGUA   ] cooperatividad fon-agua              | C = 4*g_w^2/(mu*kp)                              = 25920 -         | numpy scalar             | V147.1
+P100 [FONON_AGUA   ] fidelidad fase fon-agua              | F = C/(1+C)                                      = 0.99996142 -         | forma cerrada            | V147.1
+P101 [TRIADAS      ] neuronas por triada                  | N_tri                                            = 3 neuronas  | numpy scalar             | V144
+P102 [TRIADAS      ] acople neurona-fonon                 | g_nf                                             = 0.05 -         | numpy scalar             | V144
+P103 [TRIADAS      ] w neurona gamma                      | w_n = 2pi*40                                     = 251.32741 rad/s     | numpy scalar             | V144
+P104 [TRIADAS      ] acople intra-triada                  | J_triada                                         = 0.1 -         | numpy scalar             | V144
+P105 [TRIADAS      ] estado colectivo                     | E = w_n - J                                      = 251.22741 rad/s     | numpy scalar             | V144
+P106 [TRIADAS      ] neuronas por ensamble                | N_ens                                            = 400 neuronas  | numpy scalar             | V144
+P107 [TRIADAS      ] triadas por ensamble                 | N_ens/N_tri                                      = 133 triadas   | numpy scalar             | V144
+P108 [TRIADAS      ] acople colectivo triada              | g_nf*sqrt(3)                                     = 0.08660254 -         | numpy scalar             | V144 P17
+P109 [TRIADAS      ] subradiancia triada                  | gamma_0/3                                        = 0.0033333333 1/s       | numpy scalar             | V144 P18
+P110 [TRIADAS      ] coherencia triada                    | tau = 1/gamma_tri                                = 300 s         | numpy scalar             | V144 P19
+P111 [TRIADAS      ] dominos coherentes                   | N_dom                                            = 6250 -         | numpy scalar             | V142 P49
+P112 [TRIADAS      ] armonia h                            | h                                                = 0.9 -         | V142 P50                 | V142
+P113 [TRIADAS      ] factor Dicke                         | G_N = h*N+(1-h)*sqrt(N)                          = 5632.9057 -         | numpy scalar             | V142 P51
+P114 [TRIADAS      ] dephasing efectivo                   | g0*((1-h)N+h/N)                                  = 6.2500014 1/s       | numpy scalar             | V142 P52
+P115 [TRIADAS      ] acople vsc sim                       | 0.15*G_N/N                                       = 0.13518974 rad/ns    | numpy scalar             | V142 P56
+P116 [PUERTA_TRASERA] orden enganche 2:1                   | Z                                                = 0.95 -         | V142 P47                 | V142
+P117 [PUERTA_TRASERA] ventana magica                       | eps_max                                          = 0.041 -         | V140 medido              | V140
+P118 [PUERTA_TRASERA] acople vacio G                       | G_MAX                                            = 3.15 -         | V142                     | V104
+P119 [PUERTA_TRASERA] escala acople vacio                  | c_vac                                            = 1e-18 -         | calib V140               | V140
+P120 [PUERTA_TRASERA] eps estrella                         | argmax bits                                      = 0.012 -         | numpy argmax             | V140
+P121 [PUERTA_TRASERA] bits dial max                        | N*phi*P*c*tau*T11/L                              = 6633000.7 bits      | numpy array              | V140 6572.7
+P122 [PUERTA_TRASERA] tau en eps*                          | tau(eps*)                                        = 1 s         | numpy array              | V140
+P123 [PUERTA_TRASERA] T11 en eps*                          | T11(eps*)                                        = 1 -         | numpy array              | V140
+P124 [PUERTA_TRASERA] eps actual (dial)                    | eps                                              = 0.00205 -         | V142 lock ON             | V142
+P125 [PUERTA_TRASERA] transmision puerta                   | T = 1 si |eps|<=eps_max                          = 1 -         | forma cerrada            | V140/V142
+P126 [PUERTA_TRASERA] nph ON ancla                         | nph_ON                                           = 0.106 -         | medida V142              | V142
+P127 [PUERTA_TRASERA] nph OFF ancla                        | nph_OFF                                          = 0.0803 -         | medida V142              | V142
+P128 [PUERTA_TRASERA] vac ON ancla                         | vac_ON                                           = 0.612 -         | medida V142              | V142
+P129 [PUERTA_TRASERA] kappa sim                            | kappa                                            = 0.025 1/ns      | V142 P53                 | V142
+P130 [PUERTA_TRASERA] pump calibrado                       | pump = nph_OFF*kappa                             = 0.0020075 1/ns      | calib. inversa           | V147.1
+P131 [PUERTA_TRASERA] Gvac calibrado                       | (nph_ON-nph_OFF)*kappa/(T*vac_ON)                = 0.0010498366 1/ns      | calib. inversa           | V147.1
+P132 [PUERTA_TRASERA] reposicion vacio                     | Gvac*vac_ON/(1-vac_ON)                           = 0.0016559278 1/ns      | calib. inversa           | V148
+P133 [PUERTA_TRASERA] rate bits ON                         | 8.290e-8/1500 ns                                 = 5.5266667e-11 bits/ns   | calib. inversa           | V142
+P134 [PUERTA_TRASERA] rate bits OFF                        | 8.026e-9/1500 ns                                 = 5.3506667e-12 bits/ns   | calib. inversa           | V142
+P135 [PUERTA_TRASERA] ratio bits ON/OFF                    | R                                                = 10.328931 x         | numpy scalar             | V142 10.33
+P136 [PUERTA_TRASERA] RESPUESTA 1-1                        | R_11 = T_lock                                    = 1 -         | forma cerrada            | V140/V142
+P137 [CANAL_M1     ] acople base canal                    | G0                                               = 0.25 -         | numpy scalar             | V137.3
+P138 [CANAL_M1     ] kappa canal                          | kappa                                            = 0.005 1/ns      | V137.3                   | V137.3
+P139 [CANAL_M1     ] g_eff (N=400,h=1,n=1)                | G0*(h*N+(1-h)*sqrt(N))/n                         = 100 1/ns      | numpy scalar             | V137.3
+P140 [CANAL_M1     ] gamma_eff canal                      | 2.5e-5                                           = 2.5e-05 1/ns      | V137.3                   | V137.3
+P141 [CANAL_M1     ] t* PST                               | pi/(sqrt(2)*g_eff)                               = 0.022214415 ns        | numpy scalar             | V137.3
+P142 [CANAL_M1     ] fidelidad PST                        | F = exp(-(kappa+gamma)*t*)                       = 0.99988838 -         | forma cerrada            | V137.3 0.999888
+P143 [CANAL_M1     ] cooperatividad canal                 | C = g^2/(kappa*gamma)                            = 8e+10 -         | numpy scalar             | V137.3 8e10
+P144 [CANAL_M1     ] t_phys banda delta                   | t*/(2pi*2Hz)*1000                                = 1.767767 ms        | numpy scalar             | V137.3 1.7678
+P145 [CANAL_M1     ] bits por travesia                    | Ic_vsc*F = 2*F                                   = 1.9997768 bits      | V123.1 Ic                | V123.1
+P146 [DINAMICA     ] nph1 ON simulado                     | nph1(t->inf)                                     = 0.10632424 -         | scipy solve_ivp          | V148
+P147 [DINAMICA     ] nph1 OFF simulado                    | nph1(t->inf)                                     = 0.0803 -         | scipy solve_ivp          | V148
+P148 [DINAMICA     ] vac ON simulado                      | vac(t->inf)                                      = 0.61888549 -         | scipy solve_ivp          | V148
+P149 [DINAMICA     ] bits ON simulado                     | bits(t_max)                                      = 8.2347333e-08 -         | scipy solve_ivp          | V148
+P150 [DINAMICA     ] bits OFF simulado                    | bits(t_max)                                      = 7.9724933e-09 -         | scipy solve_ivp          | V148
+P151 [DINAMICA     ] ratio bits simulado                  | ON/OFF                                           = 10.328931 x         | numpy scalar             | V148
+P152 [QUTIP        ] negatividad foton-agua max           | N(rho_FW)                                        = 7.0390286e-09 -         | qutip+fallback           | V147.1
+P153 [QUTIP        ] I(foton:agua) max                    | I(rho_FW)                                        = 1.2645127e-06 bits      | qutip+fallback           | V147.1
+P154 [CIERRE_1_1   ] eficiencia cadena                    | F_fase*F_agua*T                                  = 0.96965956 -         | numpy scalar             | V147.1
+P155 [CIERRE_1_1   ] energia por travesia                 | hbar*w_n(5)                                      = 1.8393017e-21 J         | numpy scalar             | V147.1
+P156 [CIERRE_1_1   ] P canal por cavidad                  | bits*L/t_trav                                    = 5.9355647e-15 W         | numpy scalar             | V147.1
+P157 [CIERRE_1_1   ] stock coherente cerebro              | N_CAV*2 bits                                     = 4e+12 bits      | V125                     | V125
+P158 [CIERRE_1_1   ] t llenado 1e9 bits                   | 1e9/(rate_ON*N_CAV)                              = 0.0090470446 s         | numpy scalar             | V148
+P159 [CIERRE_1_1   ] veredicto respuesta 1-1              | R_11 == 1                                        = 1 -         | forma cerrada            | V140/V142
+==================================================================================================================================
+RESPUESTA 1-1 = 1.0 | PASOS = 159 | ratio bits = 10.33

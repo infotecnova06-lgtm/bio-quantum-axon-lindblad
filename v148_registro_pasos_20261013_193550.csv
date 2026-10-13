@@ -1,0 +1,160 @@
+paso,capa,nombre,formula,valor,unidad,herramienta,ref
+1,CONSTANTES,k_B Boltzmann,k_B,1.380649e-23,J/K,numpy scalar,CODATA
+2,CONSTANTES,hbar Planck reducido,hbar,1.054571817e-34,J*s,numpy scalar,CODATA
+3,CONSTANTES,c velocidad luz,c,299792458.0,m/s,numpy scalar,CODATA
+4,CONSTANTES,N_A Avogadro,N_A,6.02214076e+23,1/mol,numpy scalar,CODATA
+5,CONSTANTES,e carga electron,e,1.602176634e-19,C,numpy scalar,CODATA
+6,CONSTANTES,T corporal,T,310.15,K,numpy scalar,V142 P01
+7,CONSTANTES,energia termica,kBT = k_B*T,4.2820828735e-21,J,numpy scalar,V142 P02
+8,CONSTANTES,limite Landauer,L = kBT*ln(2),2.9681136706905537e-21,J/bit,numpy scalar,V121
+9,METABOLISMO,CMRO2 reposo,CMRO2,3.5,ml/100g/min,numpy scalar,V142 P03
+10,METABOLISMO,masa cerebral,M,1400.0,g,numpy scalar,estandar
+11,METABOLISMO,mol O2 por s y g,(CMRO2/1000)/22.4/60/100,2.6041666666666667e-08,mol/s/g,numpy scalar,V142 P04
+12,METABOLISMO,P acoplada ATP,molO2*M*6ATP*50kJ,10.937500000000002,W,numpy scalar,V142 P05
+13,METABOLISMO,entalpia O2,J_ml,21.1,J/ml,numpy scalar,V125 metodoA
+14,METABOLISMO,P oxicalorica,CMRO2*M/100/60*J_ml,17.23166666666667,W,numpy scalar,V125
+15,METABOLISMO,CMR glucosa,CMRglc,5.8333333333333335e-09,mol/g/s,numpy scalar,literatura
+16,METABOLISMO,P glucosa ATP,CMRglc*M*31ATP*50kJ,12.658333333333333,W,numpy scalar,V145
+17,METABOLISMO,P_met adoptada,P_OX (V125),17.23166666666667,W,numpy scalar,V125 17.23W
+18,BIOFOTON,lambda UPE dominante,lambda,5e-07,m,numpy scalar,V125
+19,BIOFOTON,energia biofoton,E = h*c/lambda,3.9728917118635906e-19,J,numpy scalar,V121
+20,BIOFOTON,frecuencia optica,w = 2pi*c/lambda,3767303134617706.5,rad/s,numpy scalar,V144
+21,BIOFOTON,flujo UPE cerebral,Phi_UPE,250000.0,fot/s,numpy scalar,V142 P06
+22,BIOFOTON,potencia UPE,P_UPE = Phi*E,9.932229279658976e-14,W,numpy scalar,V142 P06
+23,BIOFOTON,fraccion UPE/met,xi = P_UPE/P_met,5.763940001736517e-15,-,numpy scalar,V142 P07
+24,BIOFOTON,Landauer por foton,x = E_fot/L,133.85241108165738,x,numpy scalar,V121 134x
+25,CAVIDAD,longitud internodo,L,0.0002,m,numpy scalar,V142 P08
+26,CAVIDAD,radio axon,a,5e-07,m,numpy scalar,V142 P09
+27,CAVIDAD,espesor capa mielina,d_cap,5e-09,m,numpy scalar,V142 P10
+28,CAVIDAD,separacion Casimir,d,1e-08,m,numpy scalar,V142 P11
+29,CAVIDAD,indice efectivo,n_eff,1.35,-,numpy scalar,V142 P12
+30,CAVIDAD,area lateral,A = 2*pi*a*L,6.283185307179586e-10,m^2,numpy scalar,V142 P13
+31,CAVIDAD,volumen cavidad,V = pi*a^2*L,1.5707963267948967e-16,m^3,numpy scalar,V142 P14
+32,CAVIDAD,frecuencia cavidad n=1,f = c/(2*n_eff*L),555171218518.5184,Hz,numpy scalar,V142 P15
+33,CAVIDAD,energia Casimir,E_C = -pi^2*hbar*c*A/(720*d^4),-2.7229770503097444e-05,J,numpy scalar,V142 P19
+34,CAVIDAD,presion Casimir,P_C = -pi^2*hbar*c/(240*d^4),-130012.57724477533,Pa,numpy scalar,V142 P20
+35,CAVIDAD,densidad agua mielina,rho,1000.0,kg/m^3,numpy scalar,V142 P21
+36,CAVIDAD,masa efectiva capa,m = rho*A*d_cap,3.141592653589793e-15,kg,numpy scalar,V142 P21
+37,CAVIDAD,potencial de membrana,Vm = (kBT/e)*ln(K_out/K_in),-0.08905869403673188,V,numpy scalar,V142 P44
+38,CAVIDAD,campo en capa mielina,E = Vm/d_cap,17811738.807346374,V/m,numpy scalar,V142 P45
+39,ARMONICOS,tan delta mielina THz,tan_d,0.01,-,numpy scalar,V142 P31
+40,ARMONICOS,factor calidad,Q = 1/tan_d,100.0,-,numpy scalar,V142 P32
+41,ARMONICOS,w_n (n=1),n*2pi*f_cav,3488243643164.5425,rad/s,numpy scalar,V142 P16
+42,ARMONICOS,x_zpf (n=1),sqrt(hbar/(2*m*w)),6.936569476139073e-17,m,numpy scalar,V142 P22
+43,ARMONICOS,eta (n=1),x_zpf/L,3.4682847380695365e-13,-,numpy scalar,V142 P25
+44,ARMONICOS,Gamma_DCE (n=1),eta*w/4,0.3024555547563915,1/s,numpy scalar,V142 P28
+45,ARMONICOS,n_termica (n=1),1/(exp(hbar*w/kBT)-1),11.147670374733014,fonones,numpy scalar,V142 P36
+46,ARMONICOS,kappa_SI (n=1),w_n/Q,34882436431.645424,1/s,numpy scalar,V142 P33
+47,ARMONICOS,w_n (n=2),n*2pi*f_cav,6976487286329.085,rad/s,numpy scalar,V142 P17
+48,ARMONICOS,x_zpf (n=2),sqrt(hbar/(2*m*w)),4.9048953147495565e-17,m,numpy scalar,V142 P23
+49,ARMONICOS,eta (n=2),x_zpf/L,2.4524476573747783e-13,-,numpy scalar,V142 P26
+50,ARMONICOS,Gamma_DCE (n=2),eta*w/4,0.4277367475515672,1/s,numpy scalar,V142 P29
+51,ARMONICOS,n_termica (n=2),1/(exp(hbar*w/kBT)-1),5.334566947107164,fonones,numpy scalar,V142 P37
+52,ARMONICOS,kappa_SI (n=2),w_n/Q,69764872863.29085,1/s,numpy scalar,V142 P34
+53,ARMONICOS,w_n (n=3),n*2pi*f_cav,10464730929493.627,rad/s,numpy scalar,V142 P18
+54,ARMONICOS,x_zpf (n=3),sqrt(hbar/(2*m*w)),4.0048302543014357e-17,m,numpy scalar,V142 P24
+55,ARMONICOS,eta (n=3),x_zpf/L,2.0024151271507178e-13,-,numpy scalar,V142 P27
+56,ARMONICOS,Gamma_DCE (n=3),eta*w/4,0.5238683878695007,1/s,numpy scalar,V142 P30
+57,ARMONICOS,n_termica (n=3),1/(exp(hbar*w/kBT)-1),3.401623763796205,fonones,numpy scalar,V142 P38
+58,ARMONICOS,kappa_SI (n=3),w_n/Q,104647309294.93626,1/s,numpy scalar,V142 P35
+59,ARMONICOS,w_n (n=4),n*2pi*f_cav,13952974572658.17,rad/s,numpy scalar,V142 P19
+60,ARMONICOS,x_zpf (n=4),sqrt(hbar/(2*m*w)),3.4682847380695366e-17,m,numpy scalar,V142 P25
+61,ARMONICOS,eta (n=4),x_zpf/L,1.7341423690347683e-13,-,numpy scalar,V142 P28
+62,ARMONICOS,Gamma_DCE (n=4),eta*w/4,0.604911109512783,1/s,numpy scalar,V142 P31
+63,ARMONICOS,n_termica (n=4),1/(exp(hbar*w/kBT)-1),2.438707514297852,fonones,numpy scalar,V142 P39
+64,ARMONICOS,kappa_SI (n=4),w_n/Q,139529745726.5817,1/s,numpy scalar,V142 P36
+65,ARMONICOS,w_n (n=5),n*2pi*f_cav,17441218215822.713,rad/s,numpy scalar,V142 P20
+66,ARMONICOS,x_zpf (n=5),sqrt(hbar/(2*m*w)),3.102128175859415e-17,m,numpy scalar,V142 P26
+67,ARMONICOS,eta (n=5),x_zpf/L,1.5510640879297075e-13,-,numpy scalar,V142 P29
+68,ARMONICOS,Gamma_DCE (n=5),eta*w/4,0.6763111806077015,1/s,numpy scalar,V142 P32
+69,ARMONICOS,n_termica (n=5),1/(exp(hbar*w/kBT)-1),1.8637874129273095,fonones,numpy scalar,V142 P40
+70,ARMONICOS,kappa_SI (n=5),w_n/Q,174412182158.22714,1/s,numpy scalar,V142 P37
+71,ARMONICOS,w_n (n=6),n*2pi*f_cav,20929461858987.254,rad/s,numpy scalar,V142 P21
+72,ARMONICOS,x_zpf (n=6),sqrt(hbar/(2*m*w)),2.831842630317591e-17,m,numpy scalar,V142 P27
+73,ARMONICOS,eta (n=6),x_zpf/L,1.4159213151587955e-13,-,numpy scalar,V142 P30
+74,ARMONICOS,Gamma_DCE (n=6),eta*w/4,0.740861779023577,1/s,numpy scalar,V142 P33
+75,ARMONICOS,n_termica (n=6),1/(exp(hbar*w/kBT)-1),1.4828498249616782,fonones,numpy scalar,V142 P41
+76,ARMONICOS,kappa_SI (n=6),w_n/Q,209294618589.87253,1/s,numpy scalar,V142 P38
+77,ARMONICOS,internodos-cavidad cerebro,N_CAV,2000000000000.0,-,numpy scalar,V142 P39
+78,ARMONICOS,P por cavidad,P_cav = xi*P_met/N_CAV,4.966114639829488e-26,W,numpy scalar,V142 P40
+79,ARMONICOS,pump_SI (n=1),P_cav/(hbar*w_n),0.00013500000000000003,1/s,numpy scalar,V142 P41
+80,ARMONICOS,pump_SI (n=2),P_cav/(hbar*w_n),6.750000000000001e-05,1/s,numpy scalar,V142 P42
+81,ARMONICOS,pump_SI (n=5),P_cav/(hbar*w_n),2.7000000000000002e-05,1/s,numpy scalar,V142 P45
+82,FASE_FOT_FON,acople optomecanico,g_ff,0.02,-,numpy scalar,V144
+83,FASE_FOT_FON,perdida fotónica sim,kappa_f,0.01,1/ns,anclaje sim,V146
+84,FASE_FOT_FON,perdida fonónica sim,kappa_p,0.005,1/ns,anclaje sim,V144
+85,FASE_FOT_FON,fonones estacionarios,n_ph anclaje,300.0,fonones,anclaje V144,V144 P26
+86,FASE_FOT_FON,fotones cavidad,n_f anclaje UPE,3460.0,fotones,anclaje UPE,V146
+87,FASE_FOT_FON,cooperatividad fase,C = 4*g_ff^2/(kp*kf),32.0,-,numpy scalar,V146
+88,FASE_FOT_FON,fidelidad fase fot-fon,F = C/(1+C),0.9696969696969697,-,forma cerrada,V146
+89,FASE_FOT_FON,autovalor superior H 2-modos,eigh(H2)[1],21.37645700312005,-,scipy.linalg.eigh,V147.1
+90,FASE_FOT_FON,splitting normal-modos,2*g_ff*sqrt(n_ph*n_f),40.7529140062401,rad/ns,numpy scalar,V144 P48
+91,FASE_FOT_FON,tasa conversion,g_ff^2*n_ph*n_f,415.20000000000005,1/s,numpy scalar,V144 P43
+92,FASE_FOT_FON,tiempo conversion,tau = 1/R,0.0024084778420038534,s,numpy scalar,V144 P49
+93,FONON_AGUA,acople fonon-agua,g_w,0.18,-,numpy scalar,V123 g_wp
+94,FONON_AGUA,perdida agua,mu_w,0.001,1/ns,anclaje sim,V123
+95,FONON_AGUA,orden agua coherente,S_w,0.99997,-,V119 medido,V119
+96,FONON_AGUA,dominios agua por segmento,N_ag,6250.0,-,numpy scalar,V142 P49
+97,FONON_AGUA,dn indice por coherencia,dn = eta*S_w,3.4681806895273945e-13,-,numpy scalar,V147.1
+98,FONON_AGUA,tau coherencia agua,tau = 1/mu_w,1000.0,ns,numpy scalar,V147.1
+99,FONON_AGUA,cooperatividad fon-agua,C = 4*g_w^2/(mu*kp),25919.999999999996,-,numpy scalar,V147.1
+100,FONON_AGUA,fidelidad fase fon-agua,F = C/(1+C),0.9999614212414645,-,forma cerrada,V147.1
+101,TRIADAS,neuronas por triada,N_tri,3.0,neuronas,numpy scalar,V144
+102,TRIADAS,acople neurona-fonon,g_nf,0.05,-,numpy scalar,V144
+103,TRIADAS,w neurona gamma,w_n = 2pi*40,251.32741228718345,rad/s,numpy scalar,V144
+104,TRIADAS,acople intra-triada,J_triada,0.1,-,numpy scalar,V144
+105,TRIADAS,estado colectivo,E = w_n - J,251.22741228718345,rad/s,numpy scalar,V144
+106,TRIADAS,neuronas por ensamble,N_ens,400.0,neuronas,numpy scalar,V144
+107,TRIADAS,triadas por ensamble,N_ens/N_tri,133.0,triadas,numpy scalar,V144
+108,TRIADAS,acople colectivo triada,g_nf*sqrt(3),0.08660254037844387,-,numpy scalar,V144 P17
+109,TRIADAS,subradiancia triada,gamma_0/3,0.0033333333333333335,1/s,numpy scalar,V144 P18
+110,TRIADAS,coherencia triada,tau = 1/gamma_tri,300.0,s,numpy scalar,V144 P19
+111,TRIADAS,dominos coherentes,N_dom,6250.0,-,numpy scalar,V142 P49
+112,TRIADAS,armonia h,h,0.9,-,V142 P50,V142
+113,TRIADAS,factor Dicke,G_N = h*N+(1-h)*sqrt(N),5632.905694150421,-,numpy scalar,V142 P51
+114,TRIADAS,dephasing efectivo,g0*((1-h)N+h/N),6.250001439999998,1/s,numpy scalar,V142 P52
+115,TRIADAS,acople vsc sim,0.15*G_N/N,0.13518973665961012,rad/ns,numpy scalar,V142 P56
+116,PUERTA_TRASERA,orden enganche 2:1,Z,0.95,-,V142 P47,V142
+117,PUERTA_TRASERA,ventana magica,eps_max,0.041,-,V140 medido,V140
+118,PUERTA_TRASERA,acople vacio G,G_MAX,3.15,-,V142,V104
+119,PUERTA_TRASERA,escala acople vacio,c_vac,1e-18,-,calib V140,V140
+120,PUERTA_TRASERA,eps estrella,argmax bits,0.01200000000000001,-,numpy argmax,V140
+121,PUERTA_TRASERA,bits dial max,N*phi*P*c*tau*T11/L,6633000.68134505,bits,numpy array,V140 6572.7
+122,PUERTA_TRASERA,tau en eps*,tau(eps*),1.0,s,numpy array,V140
+123,PUERTA_TRASERA,T11 en eps*,T11(eps*),1.0,-,numpy array,V140
+124,PUERTA_TRASERA,eps actual (dial),eps,0.00205,-,V142 lock ON,V142
+125,PUERTA_TRASERA,transmision puerta,T = 1 si |eps|<=eps_max,1.0,-,forma cerrada,V140/V142
+126,PUERTA_TRASERA,nph ON ancla,nph_ON,0.106,-,medida V142,V142
+127,PUERTA_TRASERA,nph OFF ancla,nph_OFF,0.0803,-,medida V142,V142
+128,PUERTA_TRASERA,vac ON ancla,vac_ON,0.612,-,medida V142,V142
+129,PUERTA_TRASERA,kappa sim,kappa,0.025,1/ns,V142 P53,V142
+130,PUERTA_TRASERA,pump calibrado,pump = nph_OFF*kappa,0.0020075,1/ns,calib. inversa,V147.1
+131,PUERTA_TRASERA,Gvac calibrado,(nph_ON-nph_OFF)*kappa/(T*vac_ON),0.0010498366013071898,1/ns,calib. inversa,V147.1
+132,PUERTA_TRASERA,reposicion vacio,Gvac*vac_ON/(1-vac_ON),0.0016559278350515468,1/ns,calib. inversa,V148
+133,PUERTA_TRASERA,rate bits ON,8.290e-8/1500 ns,5.526666666666666e-11,bits/ns,calib. inversa,V142
+134,PUERTA_TRASERA,rate bits OFF,8.026e-9/1500 ns,5.350666666666667e-12,bits/ns,calib. inversa,V142
+135,PUERTA_TRASERA,ratio bits ON/OFF,R,10.328930974333415,x,numpy scalar,V142 10.33
+136,PUERTA_TRASERA,RESPUESTA 1-1,R_11 = T_lock,1.0,-,forma cerrada,V140/V142
+137,CANAL_M1,acople base canal,G0,0.25,-,numpy scalar,V137.3
+138,CANAL_M1,kappa canal,kappa,0.005,1/ns,V137.3,V137.3
+139,CANAL_M1,"g_eff (N=400,h=1,n=1)",G0*(h*N+(1-h)*sqrt(N))/n,100.0,1/ns,numpy scalar,V137.3
+140,CANAL_M1,gamma_eff canal,2.5e-5,2.5e-05,1/ns,V137.3,V137.3
+141,CANAL_M1,t* PST,pi/(sqrt(2)*g_eff),0.02221441469079183,ns,numpy scalar,V137.3
+142,CANAL_M1,fidelidad PST,F = exp(-(kappa+gamma)*t*),0.9998883787962889,-,forma cerrada,V137.3 0.999888
+143,CANAL_M1,cooperatividad canal,C = g^2/(kappa*gamma),79999999999.99998,-,numpy scalar,V137.3 8e10
+144,CANAL_M1,t_phys banda delta,t*/(2pi*2Hz)*1000,1.7677669529663687,ms,numpy scalar,V137.3 1.7678
+145,CANAL_M1,bits por travesia,Ic_vsc*F = 2*F,1.9997767575925778,bits,V123.1 Ic,V123.1
+146,DINAMICA,nph1 ON simulado,nph1(t->inf),0.1063242380578808,-,scipy solve_ivp,V148
+147,DINAMICA,nph1 OFF simulado,nph1(t->inf),0.08029999999999997,-,scipy solve_ivp,V148
+148,DINAMICA,vac ON simulado,vac(t->inf),0.6188854902106594,-,scipy solve_ivp,V148
+149,DINAMICA,bits ON simulado,bits(t_max),8.234733333333332e-08,-,scipy solve_ivp,V148
+150,DINAMICA,bits OFF simulado,bits(t_max),7.972493333333337e-09,-,scipy solve_ivp,V148
+151,DINAMICA,ratio bits simulado,ON/OFF,10.328930974333408,x,numpy scalar,V148
+152,QUTIP,negatividad foton-agua max,N(rho_FW),7.0390285822341525e-09,-,qutip+fallback,V147.1
+153,QUTIP,I(foton:agua) max,I(rho_FW),1.2645126998278577e-06,bits,qutip+fallback,V147.1
+154,CIERRE_1_1,eficiencia cadena,F_fase*F_agua*T,0.9696595599917232,-,numpy scalar,V147.1
+155,CIERRE_1_1,energia por travesia,hbar*w_n(5),1.8393017184553658e-21,J,numpy scalar,V147.1
+156,CIERRE_1_1,P canal por cavidad,bits*L/t_trav,5.93556473253976e-15,W,numpy scalar,V147.1
+157,CIERRE_1_1,stock coherente cerebro,N_CAV*2 bits,4000000000000.0,bits,V125,V125
+158,CIERRE_1_1,t llenado 1e9 bits,1e9/(rate_ON*N_CAV),0.009047044632086854,s,numpy scalar,V148
+159,CIERRE_1_1,veredicto respuesta 1-1,R_11 == 1,1.0,-,forma cerrada,V140/V142
