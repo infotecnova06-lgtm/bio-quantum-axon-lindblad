@@ -174,6 +174,10 @@ python3 v148_sistema_total.py
   howpublished = {\url{https://github.com/infotecnova06-lgtm/bio-quantum-axon-lindblad}}
 }
 ```
+Use of artificial intelligence. Large language models (Qwen, Alibaba Group) were used as assistance tools for code debugging, figure generation and manuscript editing. No AI system is listed as an author and none bears responsibility for the content. The author designed the study, executed and verified all simulations, and assumes full responsibility for the integrity of the data, the code and the conclusions.
+
+The author thanks the open-science community and acknowledges computational writing assistance from large language models (Qwen). The "popcorn" philosophy — letting the data pop on their own — guided every version of this work.
+
 
 **License / Licencia / Llicència:** CC-BY 4.0 (dades, text i codi / data, text and code). **No competing interests / Sin intereses en competencia / Sense interessos en competència.**
 
