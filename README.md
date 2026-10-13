@@ -169,7 +169,7 @@ python3 v148_sistema_total.py
 @misc{alfonso2026v148,
   title  = {V148-SISTEMA-TOTAL: Quantum dynamics of the myelinated axon at 310 K.
             A 159-step auditable open-quantum-system chain},
-  author = {Alfonso, M.},
+  author = {Alfonso, M.o.},
   year   = {2026},
   howpublished = {\url{https://github.com/infotecnova06-lgtm/bio-quantum-axon-lindblad}}
 }
